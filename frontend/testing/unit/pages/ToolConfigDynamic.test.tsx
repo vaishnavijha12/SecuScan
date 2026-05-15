@@ -149,6 +149,26 @@ describe('ToolConfig dynamic schema flow', () => {
   })
 
   it('validates dynamic fields in real-time and disables scan button', async () => {
+    vi.mocked(listPlugins).mockResolvedValue({
+      total: 1,
+      plugins: [
+        {
+          id: 'nuclei_mock',
+          name: 'Nuclei Mock',
+          description: 'Mock scanner',
+          category: 'web',
+          safety_level: 'intrusive',
+          enabled: true,
+          icon: '🔧',
+          requires_consent: false,
+          availability: {
+            runnable: true,
+            missing_binaries: [],
+          },
+        },
+      ],
+    })
+
     vi.mocked(getPluginSchema).mockResolvedValue({
       id: 'nuclei_mock',
       name: 'Nuclei Mock',
