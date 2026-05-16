@@ -66,5 +66,5 @@
     "system_packages": []
   },
   "docker_image": "zricethezav/gitleaks:latest",
-  "checksum": "df0bc69b2cd15d45c98c5d38c90e7aae8ec8d6286969bcb3da4ea68b2146d884"
+  "checksum": "4287007a8a060b41dea04e2f3e2ce98c4db0fefa8e0cca318168bc0ce4aaa032"
 }

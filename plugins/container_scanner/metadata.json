@@ -67,5 +67,5 @@
     "system_packages": []
   },
   "docker_image": "aquasec/trivy",
-  "checksum": "9abee62af1a281a8c327c38e225c26041b6371025d7fa42f8b2a6b26c40c9225"
+  "checksum": "934f32fba8427ff8c93a44f9865612b8c38f2da81af25cd1e0e06dd0ca37b57a"
 }
