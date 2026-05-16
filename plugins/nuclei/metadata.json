@@ -34,7 +34,7 @@
       "required": true,
       "placeholder": "https://secuscan.in or secuscan.in",
       "validation": {
-        "pattern": "^(https?://)?[a-zA-Z0-9.-]+",
+        "pattern": "^(https?://)?[a-zA-Z0-9.-]+$",
         "message": "Must be a valid URL or Hostname"
       },
       "help": "URL or Hostname to scan"
@@ -130,5 +130,5 @@
     "python_packages": [],
     "system_packages": []
   },
-  "checksum": "aa5a2f5b8574617d1bc831f83a58915c21cb8eb5738df12d195d276263641129"
+  "checksum": "fc2217a93e8236e862b59951f39a143a406891ef1b0cee4edf8b10870fd8e0b4"
 }
