@@ -5,7 +5,21 @@ export type TelemetryPayload = SanitizedError & {
   route?: string
 }
 
-export function captureError(payload: TelemetryPayload) {
+export interface TelemetryAdapter {
+  capture(payload: TelemetryPayload): void
+}
+
+const noopAdapter: TelemetryAdapter = {
+  capture: () => {},
+}
+
+let activeAdapter: TelemetryAdapter = noopAdapter
+
+export function setTelemetryAdapter(adapter: TelemetryAdapter): void {
+  activeAdapter = adapter
+}
+
+export function captureError(payload: TelemetryPayload): void {
   if (import.meta.env.DEV) {
     console.error('[Frontend Telemetry]', {
       message: payload.message,
@@ -14,6 +28,5 @@ export function captureError(payload: TelemetryPayload) {
       route: payload.route,
     })
   }
-
-  // future telemetry integrations
+  activeAdapter.capture(payload)
 }
