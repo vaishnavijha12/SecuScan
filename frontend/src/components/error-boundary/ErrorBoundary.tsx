@@ -20,17 +20,15 @@ class ErrorBoundary extends React.Component<Props, State> {
 
   static getDerivedStateFromError(error: Error): State {
     const sanitized = sanitizeError(error)
-
     return {
       hasError: true,
       error,
-      sanitizedMessage: sanitized.message,
+      sanitizedMessage: sanitized.message ?? undefined,
     }
   }
 
   componentDidCatch(error: Error, info: React.ErrorInfo) {
     const sanitized = sanitizeError(error)
-
     captureError({
       ...sanitized,
       componentStack: info.componentStack,
@@ -54,7 +52,6 @@ class ErrorBoundary extends React.Component<Props, State> {
         />
       )
     }
-
     return this.props.children
   }
 }
